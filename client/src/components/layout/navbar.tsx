@@ -20,8 +20,8 @@ export default function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <span className="text-2xl font-bold text-primary">DJA</span>
-              <span className="text-secondary ml-2 font-semibold">Construction</span>
+              <span className="text-2xl font-bold text-[#AE330A]">DJA</span>
+              <span className="text-[#1B1A1F] ml-2 font-semibold">Construction</span>
             </Link>
           </div>
 
@@ -33,8 +33,8 @@ export default function Navbar() {
                 href={item.href}
                 className={`inline-flex items-center px-1 pt-1 text-sm font-medium 
                   ${location === item.href
-                    ? "text-primary border-b-2 border-primary"
-                    : "text-gray-500 hover:text-primary"
+                    ? "text-[#AE330A] border-b-2 border-[#AE330A]"
+                    : "text-[#1B1A1F]/70 hover:text-[#AE330A]"
                   }`}
               >
                 {item.name}
@@ -70,8 +70,8 @@ export default function Navbar() {
                 href={item.href}
                 className={`block pl-3 pr-4 py-2 text-base font-medium
                   ${location === item.href
-                    ? "text-primary bg-primary/5"
-                    : "text-gray-500 hover:text-primary hover:bg-primary/5"
+                    ? "text-[#AE330A] bg-[#FFD584]/10"
+                    : "text-[#1B1A1F]/70 hover:text-[#AE330A] hover:bg-[#FFD584]/10"
                   }`}
                 onClick={() => setIsOpen(false)}
               >
