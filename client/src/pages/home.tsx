@@ -1,23 +1,25 @@
 import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
+import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
+import { Building2, Users2, CheckCircle, ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="bg-secondary pt-32 pb-16 px-4">
+      <section className="bg-secondary pt-32 pb-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-            Building Tomorrow's Infrastructure Today
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+            Building Excellence,<br />Delivering Trust
           </h1>
           <p className="text-lg text-gray-200 mb-8 max-w-2xl mx-auto">
-            DJA Construction delivers excellence in general contracting and construction services.
-            From concept to completion, we build with precision and purpose.
+            DJA Construction brings over two decades of expertise in delivering exceptional 
+            construction projects across commercial, residential, and industrial sectors.
           </p>
           <div className="space-x-4">
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-              <Link href="/contact">Get a Quote</Link>
+              <Link href="/contact">Start Your Project</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
               <Link href="/portfolio">View Our Work</Link>
@@ -26,63 +28,131 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Overview */}
-      <section className="py-16 px-4 bg-gray-50">
+      {/* About Us Section */}
+      <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <Heading
-            title="Our Services"
-            description="Comprehensive construction solutions for every project"
-            centered
-            className="mb-12"
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((service) => (
-              <div
-                key={service.title}
-                className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
-              >
-                <service.icon className="h-12 w-12 text-primary mb-4" />
-                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold mb-6">Who We Are</h2>
+              <p className="text-gray-600 mb-6 text-lg">
+                DJA Construction has been a trusted name in the construction industry since 2000. 
+                Our commitment to quality, safety, and innovation has made us a leader in both 
+                general contracting and specialized construction services.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="flex items-start gap-3">
+                  <Building2 className="w-6 h-6 text-primary mt-1" />
+                  <div>
+                    <h3 className="font-semibold mb-1">Expert Team</h3>
+                    <p className="text-gray-600">Skilled professionals with years of experience</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Users2 className="w-6 h-6 text-primary mt-1" />
+                  <div>
+                    <h3 className="font-semibold mb-1">Client-Focused</h3>
+                    <p className="text-gray-600">Your vision is our priority</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-6 h-6 text-primary mt-1" />
+                  <div>
+                    <h3 className="font-semibold mb-1">Quality Assured</h3>
+                    <p className="text-gray-600">Industry-leading standards</p>
+                  </div>
+                </div>
               </div>
-            ))}
+            </div>
+            <div className="relative">
+              <img 
+                src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5"
+                alt="Construction team reviewing plans"
+                className="rounded-lg shadow-lg w-full"
+              />
+              <div className="absolute -bottom-6 -right-6 bg-primary text-white p-6 rounded-lg hidden lg:block">
+                <p className="text-4xl font-bold mb-2">20+</p>
+                <p className="text-sm">Years of Excellence</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Featured Projects */}
-      <section className="py-16 px-4">
+      <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <Heading
-            title="Featured Projects"
-            description="A showcase of our recent construction excellence"
-            centered
-            className="mb-12"
-          />
+          <div className="text-center mb-12">
+            <Heading
+              title="Featured Projects"
+              description="A showcase of our exceptional work and commitment to quality"
+              centered
+            />
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
-              <div key={project.title} className="group relative">
-                <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
+              <Card key={project.title} className="overflow-hidden group">
+                <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
                     className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <div className="mt-4">
-                  <h3 className="text-lg font-semibold">{project.title}</h3>
-                  <p className="text-gray-600">{project.description}</p>
-                </div>
-              </div>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                  <p className="text-gray-600 mb-4">{project.description}</p>
+                  <div className="flex items-center text-primary group-hover:gap-2 transition-all">
+                    <span className="font-medium">Learn More</span>
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
+
+          <div className="text-center mt-12">
+            <Button asChild size="lg" variant="outline">
+              <Link href="/portfolio">View All Projects</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-20 px-4 bg-secondary text-white">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">Ready to Start Your Project?</h2>
+          <p className="text-gray-200 mb-8 max-w-2xl mx-auto">
+            Let's bring your construction vision to life. Contact us today for a consultation 
+            and discover why leading businesses trust DJA Construction.
+          </p>
+          <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
+            <Link href="/contact">Get in Touch</Link>
+          </Button>
         </div>
       </section>
     </div>
   );
 }
+
+const projects = [
+  {
+    title: "Modern Office Complex",
+    description: "A cutting-edge commercial space featuring sustainable design and state-of-the-art facilities",
+    image: "https://images.unsplash.com/photo-1485083269755-a7b559a4fe5e",
+  },
+  {
+    title: "Luxury Residences",
+    description: "Premium residential development with exceptional amenities and stunning architecture",
+    image: "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77",
+  },
+  {
+    title: "Industrial Innovation",
+    description: "Advanced manufacturing facility designed for optimal efficiency and productivity",
+    image: "https://images.unsplash.com/photo-1531431057391-da7a1aabd412",
+  },
+];
 
 const services = [
   {
@@ -160,23 +230,5 @@ const services = [
         </svg>
       );
     },
-  },
-];
-
-const projects = [
-  {
-    title: "Modern Office Complex",
-    description: "State-of-the-art commercial building",
-    image: "https://images.unsplash.com/photo-1485083269755-a7b559a4fe5e",
-  },
-  {
-    title: "Residential Development",
-    description: "Luxury apartment complex",
-    image: "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77",
-  },
-  {
-    title: "Industrial Facility",
-    description: "Manufacturing plant construction",
-    image: "https://images.unsplash.com/photo-1531431057391-da7a1aabd412",
   },
 ];
