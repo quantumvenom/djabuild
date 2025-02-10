@@ -112,7 +112,7 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <Button asChild size="lg" variant="outline" className="border-[#AE330A] text-[#AE330A] hover:bg-[#AE330A] hover:text-white">
+            <Button asChild size="lg" className="bg-[#AE330A] hover:bg-[#AE330A]/90 text-white">
               <Link href="/portfolio">View All Projects</Link>
             </Button>
           </div>
