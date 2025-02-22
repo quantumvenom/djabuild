@@ -1,68 +1,98 @@
 import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Link } from "wouter";
-import { Building2, Users2, CheckCircle, ArrowRight } from "lucide-react";
+import { Building2, Users2, CheckCircle, ChevronLeft, ChevronRight, Settings } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  const services = [
+    {
+      image: "https://images.unsplash.com/photo-1590274853856-f22d5ee3d228",
+      title: "Carpentry Services",
+      description: "Precision carpentry services delivered at scale, backed by decades of multifamily construction expertise. Our seasoned teams seamlessly integrate architectural vision with structural integrity, ensuring superior quality across every floor and unit. From rough framing to refined finishing work, we execute with excellence while maintaining project momentum through collaborative planning and skilled resource management."
+    },
+    {
+      image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf",
+      title: "General Contracting",
+      description: "Building excellence through collaborative partnerships and proven expertise. We deliver sophisticated mid-rise multifamily projects with a foundation built on transparent communication and methodical project management. Our commitment to quality craftsmanship and innovative solutions drives successful outcomes for even the most complex construction challenges. From preconstruction through completion, we foster relationships that transform ambitious visions into lasting architectural achievements."
+    },
+    {
+      image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e",
+      title: "Pre-Construction Services",
+      description: "Strategic planning and collaborative expertise that sets the foundation for successful multifamily developments. Our pre-construction services leverage decades of experience to identify opportunities, mitigate risks, and optimize project outcomes before breaking ground. Through methodical analysis and transparent partnership, we transform complex challenges into actionable solutions, ensuring your project starts with precision and purpose."
+    }
+  ];
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="bg-[#1B1A1F] pt-32 pb-20 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#FFD584] mb-6">
-            Building Excellence,<br />Delivering Trust
+      <section className="relative bg-[#1B1A1F] pt-32 pb-20 px-4 overflow-hidden">
+        {/* Video Background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+        >
+          <source src="/videos/hero-video.mp4" type="video/mp4" />
+        </video>
+
+        {/* Content */}
+        <div className="relative max-w-7xl mx-auto text-center">
+          <h1 className="font-teko text-4xl sm:text-5xl lg:text-6xl font-bold text-[#FFD584] mb-6">
+            Building Trust Through Every Story We Raise
           </h1>
-          <p className="text-lg text-white mb-8 max-w-2xl mx-auto">
+          <p className="font-barlow text-lg text-white mb-8 max-w-2xl mx-auto">
             DJA Construction brings over two decades of expertise in delivering exceptional 
             construction projects across commercial, residential, and industrial sectors.
           </p>
-          <div className="space-x-4">
-            <Button asChild size="lg" className="bg-[#AE330A] hover:bg-[#AE330A]/90 text-white">
-              <Link href="/contact">Start Your Project</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="text-[#FFD584] border-[#FFD584] hover:bg-[#FFD584]/10">
-              <Link href="/portfolio">View Our Work</Link>
-            </Button>
-          </div>
         </div>
       </section>
 
       {/* About Us Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="pb-20 pt-24 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6 text-[#1B1A1F]">Who We Are</h2>
-              <p className="text-[#1B1A1F]/80 mb-6 text-lg">
-                DJA Construction has been a trusted name in the construction industry since 2000. 
-                Our commitment to quality, safety, and innovation has made us a leader in both 
-                general contracting and specialized construction services.
+              <h2 className="font-teko text-3xl font-bold mb-6 text-[#1B1A1F]">Who We Are</h2>
+              <p className="font-barlow text-[#1B1A1F]/80 mb-6 text-lg">
+              As a leading construction partner in the Northeastern United States, we transform 
+              ambitious multifamily projects from vision to reality. Our regional expertise and 
+              commitment to transparency have established us as a trusted builder across New England.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="flex items-start gap-3">
                   <Building2 className="w-6 h-6 text-[#AE330A] mt-1" />
                   <div>
-                    <h3 className="font-semibold mb-1 text-[#1B1A1F]">Expert Team</h3>
-                    <p className="text-[#1B1A1F]/70">Skilled professionals with years of experience</p>
+                    <h3 className="font-chakra-petch font-semibold italic mb-1 text-[#1B1A1F]">Strong Track-record</h3>
+                    <p className="font-barlow text-[#1B1A1F]/70">From stable growth areas to emerging markets</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Users2 className="w-6 h-6 text-[#AE330A] mt-1" />
                   <div>
-                    <h3 className="font-semibold mb-1 text-[#1B1A1F]">Client-Focused</h3>
-                    <p className="text-[#1B1A1F]/70">Your vision is our priority</p>
+                    <h3 className="font-chakra-petch font-semibold italic mb-1 text-[#1B1A1F]">Client-Focused</h3>
+                    <p className="font-barlow text-[#1B1A1F]/70">Your vision is our priority</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-[#AE330A] mt-1" />
                   <div>
-                    <h3 className="font-semibold mb-1 text-[#1B1A1F]">Quality Assured</h3>
-                    <p className="text-[#1B1A1F]/70">Industry-leading standards</p>
+                    <h3 className="font-chakra-petch font-semibold italic mb-1 text-[#1B1A1F]">Quality Assured</h3>
+                    <p className="font-barlow text-[#1B1A1F]/70">No matter the product, no matter the standard, we've got you covered</p>
                   </div>
                 </div>
+                <div className="flex items-start gap-3">
+                  <Settings className="w-6 h-6 text-[#AE330A] mt-1" />
+                  <div>
+                    <h3 className="font-chakra-petch font-semibold italic mb-1 text-[#1B1A1F]">Process Driven</h3>
+                    <p className="font-barlow text-[#1B1A1F]/70">Efficient systems that deliver consistent results across sites</p>
+                  </div>
               </div>
             </div>
+          </div>
             <div className="relative">
               <img 
                 src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5"
@@ -78,43 +108,135 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Projects */}
-      <section className="py-20 px-4 bg-[#FFD584]/10">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <Heading
-              title="Featured Projects"
-              description="A showcase of our exceptional work and commitment to quality"
-              centered
-            />
-          </div>
+      {/* Services Title */}
+      <section className="pt-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="font-teko text-5xl sm:text-6xl lg:text-7xl font-bold text-[#1B1A1F]">
+            Our Expertise
+          </h2>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
-              <Card key={project.title} className="overflow-hidden group bg-white">
-                <div className="aspect-[4/3] overflow-hidden">
+      {/* Services Sections */}
+      {services.map((service, index) => (
+        <section key={service.title} className="py-12 px-4 bg-white">
+          <div className="max-w-7xl mx-auto">
+            <div className={`grid grid-cols-1 lg:grid-cols-2 gap-10 items-center ${
+              index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
+            }`}>
+              {/* Image */}
+              <div className={`relative ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
+                <Card className="overflow-hidden">
                   <img
-                    src={project.image}
-                    alt={project.title}
-                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-[320px] object-cover"
                   />
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2 text-[#1B1A1F]">{project.title}</h3>
-                  <p className="text-[#1B1A1F]/70 mb-4">{project.description}</p>
-                  <div className="flex items-center text-[#AE330A] group-hover:gap-2 transition-all">
-                    <span className="font-medium">Learn More</span>
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                </Card>
+              </div>
 
-          <div className="text-center mt-12">
-            <Button asChild size="lg" className="bg-[#AE330A] hover:bg-[#AE330A]/90 text-white">
-              <Link href="/portfolio">View All Projects</Link>
-            </Button>
+              {/* Content */}
+              <div className="space-y-6">
+                <div>
+                  <h3 className="font-chakra-petch text-2xl font-semibold mb-4 text-[#AE330A]">
+                    {service.title}
+                  </h3>
+                  <p className="font-barlow text-[#1B1A1F]/80 text-lg">
+                    {service.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      ))}
+
+{/* Our Work Title */}
+<section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="font-teko text-5xl sm:text-6xl lg:text-7xl font-bold text-[#1B1A1F]">
+            Our Work
+          </h2>
+        </div>
+      </section>
+
+      {/* Our Work Grid */}
+      <section className="pb-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[300px]">
+            {/* Featured Project (Spans 2 rows) */}
+            <Card className="row-span-2 group relative overflow-hidden">
+              <img 
+                src="/photos/onepark exterior.jpg"
+                alt="One Park Exterior"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
+                <div className="absolute bottom-0 p-6">
+                  <h3 className="font-chakra-petch text-xl font-semibold text-white mb-2">
+                    One Park Apartments
+                  </h3>
+                  <p className="font-barlow text-white/90">
+                    292-unit luxury apartment complex
+                  </p>
+                </div>
+              </div>
+            </Card>
+
+            {/* Regular Projects */}
+            <Card className="group relative overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1463620695885-8a91d87c53d0"
+                alt="Mixed-Use Development"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
+                <div className="absolute bottom-0 p-6">
+                  <h3 className="font-chakra-petch text-xl font-semibold text-white mb-2">
+                    Downtown Commons
+                  </h3>
+                  <p className="font-barlow text-white/90">
+                    Mixed-use retail & residential
+                  </p>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="group relative overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab"
+                alt="Corporate Office Building"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
+                <div className="absolute bottom-0 p-6">
+                  <h3 className="font-chakra-petch text-xl font-semibold text-white mb-2">
+                    Tech Plaza
+                  </h3>
+                  <p className="font-barlow text-white/90">
+                    Modern office complex
+                  </p>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="md:col-span-2 lg:col-span-2 group relative overflow-hidden">
+              <img 
+                src="photos/gateway scarborough campus.jpg"
+                alt="Sustainable Housing Development"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
+                <div className="absolute bottom-0 p-6">
+                  <h3 className="font-chakra-petch text-xl font-semibold text-white mb-2">
+                    The Beacon at Gateway Apartments
+                  </h3>
+                  <p className="font-barlow text-white/90">
+                    336-unit luxury apartment campus
+                  </p>
+                </div>
+              </div>
+            </Card>
           </div>
         </div>
       </section>
@@ -122,8 +244,8 @@ export default function Home() {
       {/* Call to Action */}
       <section className="py-20 px-4 bg-[#1B1A1F] text-white">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6 text-[#FFD584]">Ready to Start Your Project?</h2>
-          <p className="text-white/90 mb-8 max-w-2xl mx-auto">
+          <h2 className="font-teko text-3xl font-bold mb-6 text-[#FFD584]">Ready to Start Your Project?</h2>
+          <p className="font-barlow text-white/90 mb-8 max-w-2xl mx-auto">
             Let's bring your construction vision to life. Contact us today for a consultation 
             and discover why leading businesses trust DJA Construction.
           </p>
@@ -135,21 +257,3 @@ export default function Home() {
     </div>
   );
 }
-
-const projects = [
-  {
-    title: "Modern Office Complex",
-    description: "A cutting-edge commercial space featuring sustainable design and state-of-the-art facilities",
-    image: "https://images.unsplash.com/photo-1485083269755-a7b559a4fe5e",
-  },
-  {
-    title: "Luxury Residences",
-    description: "Premium residential development with exceptional amenities and stunning architecture",
-    image: "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77",
-  },
-  {
-    title: "Industrial Innovation",
-    description: "Advanced manufacturing facility designed for optimal efficiency and productivity",
-    image: "https://images.unsplash.com/photo-1531431057391-da7a1aabd412",
-  },
-];

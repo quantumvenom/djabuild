@@ -84,6 +84,11 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      fontFamily: {
+        'teko': ['Teko', 'sans-serif'],
+        'chakra-petch': ['Chakra Petch', 'sans-serif'],
+        'barlow': ['Barlow', 'sans-serif'],
+      },
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],

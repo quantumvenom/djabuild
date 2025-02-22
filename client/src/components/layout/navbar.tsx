@@ -20,8 +20,8 @@ export default function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <span className="text-2xl font-bold text-[#AE330A]">DJA</span>
-              <span className="text-[#1B1A1F] ml-2 font-semibold">Construction</span>
+              <span className="font-teko text-3xl font-bold text-[#AE330A]">DJA</span>
+              <span className="font-chakra-petch text-[#1B1A1F] ml-2 font-semibold">Construction</span>
             </Link>
           </div>
 
@@ -31,10 +31,10 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`inline-flex items-center px-1 pt-1 text-sm font-medium 
+                className={`inline-flex items-center px-3 pt-1 font-barlow text-base font-medium transition-colors
                   ${location === item.href
                     ? "text-[#AE330A] border-b-2 border-[#AE330A]"
-                    : "text-[#1B1A1F]/70 hover:text-[#AE330A]"
+                    : "text-[#1B1A1F] hover:text-[#AE330A]"
                   }`}
               >
                 {item.name}
@@ -43,12 +43,12 @@ export default function Navbar() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="sm:hidden flex items-center">
+          <div className="flex items-center sm:hidden">
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center"
+              className="text-[#1B1A1F]"
             >
               {isOpen ? (
                 <X className="h-6 w-6" />
@@ -58,29 +58,28 @@ export default function Navbar() {
             </Button>
           </div>
         </div>
-      </div>
 
-      {/* Mobile menu */}
-      {isOpen && (
-        <div className="sm:hidden">
-          <div className="pt-2 pb-3 space-y-1">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`block pl-3 pr-4 py-2 text-base font-medium
-                  ${location === item.href
-                    ? "text-[#AE330A] bg-[#FFD584]/10"
-                    : "text-[#1B1A1F]/70 hover:text-[#AE330A] hover:bg-[#FFD584]/10"
-                  }`}
-                onClick={() => setIsOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
+        {/* Mobile menu */}
+        {isOpen && (
+          <div className="sm:hidden">
+            <div className="pt-2 pb-3 space-y-1">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`block px-3 py-2 font-barlow text-base font-medium rounded-md
+                    ${location === item.href
+                      ? "text-[#AE330A] bg-[#AE330A]/10"
+                      : "text-[#1B1A1F] hover:text-[#AE330A] hover:bg-[#AE330A]/5"
+                    }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </nav>
   );
 }
