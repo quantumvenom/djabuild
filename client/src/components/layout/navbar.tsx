@@ -31,7 +31,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`inline-flex items-center px-3 pt-1 font-barlow text-base font-medium transition-colors
+                className={`inline-flex items-center px-3 pt-1 font-chakra-petch text-base font-medium transition-colors
                   ${location === item.href
                     ? "text-[#AE330A] border-b-2 border-[#AE330A]"
                     : "text-[#1B1A1F] hover:text-[#AE330A]"
@@ -67,7 +67,7 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`block px-3 py-2 font-barlow text-base font-medium rounded-md
+                  className={`block px-3 py-2 font-chakra-petch text-base font-medium rounded-md
                     ${location === item.href
                       ? "text-[#AE330A] bg-[#AE330A]/10"
                       : "text-[#1B1A1F] hover:text-[#AE330A] hover:bg-[#AE330A]/5"

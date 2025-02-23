@@ -6,63 +6,127 @@ import {
 } from "@/components/ui/card";
 import { type Project } from "@shared/schema";
 
-export default function Portfolio() {
-  const { data: projects, isLoading } = useQuery<Project[]>({
-    queryKey: ["/api/projects"],
-  });
+const projects = [
+  {
+    title: "One Park Apartments",
+    location: "Cliffside Park, NJ",
+    description: "A 14-story, 292-unit luxury apartment complex with stunning views of the Manhattan skyline. This $120M development features high-end amenities, structured parking, and premium finishes throughout.",
+    details: [
+      "292 luxury residential units",
+      "14-story post-tensioned concrete structure",
+      "30,000 sq ft of amenity space",
+      "Three-level parking structure",
+      "Full-service fitness center and resort-style pool"
+    ],
+    imageUrl: "/photos/onepark exterior.jpg",
+    completion: "2022"
+  },
+  {
+    title: "The Vista",
+    location: "Wyckoff, NJ",
+    description: "A premier senior living community designed to provide exceptional comfort and care. This $85M development combines luxury accommodations with specialized healthcare facilities.",
+    details: [
+      "200 independent living units",
+      "80 assisted living apartments",
+      "40 memory care suites",
+      "State-of-the-art medical facilities",
+      "Comprehensive wellness amenities"
+    ],
+    imageUrl: "photos/vista nj exterior.png",
+    completion: "2023"
+  },
+  {
+    title: "Edge-On-Hudson",
+    location: "Sleepy Hollow, NY",
+    description: "A transformative waterfront development featuring 1,177 luxury residential units. This $200M+ project combines waterfront living with modern amenities and sustainable design.",
+    details: [
+      "1,177 luxury residential units",
+      "Mixed-use development",
+      "Waterfront promenade",
+      "LEED Silver certification",
+      "Public spaces and retail integration"
+    ],
+    imageUrl: "photos/edge hudson ny overview.jpg",
+    completion: "2024"
+  },
+  {
+    title: "The Beacon at Gateway",
+    location: "Scarborough, ME",
+    description: "A 336-unit luxury apartment campus set within a master-planned community. This $95M development emphasizes sustainable living and community connection.",
+    details: [
+      "336 luxury residential units",
+      "Multiple building campus design",
+      "Extensive outdoor amenities",
+      "Sustainable building practices",
+      "Integrated community spaces"
+    ],
+    imageUrl: "photos/gateway scarborough campus.jpg",
+    completion: "2023"
+  }
+];
 
+export default function Portfolio() {
   return (
     <div className="min-h-screen pt-16">
-      <section className="bg-secondary py-16 px-4">
+      {/* Hero Section */}
+      <section className="relative bg-[#1B1A1F] pt-32 pb-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <Heading
-            title="Our Portfolio"
-            description="Showcasing our finest construction projects"
-            centered
-            className="text-white mb-8"
-          />
+          <h1 className="font-teko text-4xl sm:text-5xl lg:text-6xl font-bold text-[#FFD584] mb-6">
+            Featured Projects
+          </h1>
+          <p className="font-barlow text-lg text-white/90 max-w-2xl">
+            Showcasing our commitment to excellence in multifamily construction across the Northeast.
+          </p>
         </div>
       </section>
 
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          {isLoading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[...Array(6)].map((_, i) => (
-                <Card key={i} className="overflow-hidden">
-                  <div className="aspect-video animate-pulse bg-gray-200" />
-                  <CardContent className="p-6">
-                    <div className="h-6 w-2/3 bg-gray-200 rounded animate-pulse mb-4" />
-                    <div className="h-4 bg-gray-200 rounded animate-pulse mb-2" />
-                    <div className="h-4 w-2/3 bg-gray-200 rounded animate-pulse" />
-                  </CardContent>
+      {/* Project Sections */}
+      {projects.map((project, index) => (
+        <section key={project.title} className="py-20 px-4 bg-white">
+          <div className="max-w-7xl mx-auto">
+            <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
+              index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
+            }`}>
+              {/* Image */}
+              <div className={`relative ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
+                <Card className="overflow-hidden">
+                  <img
+                    src={project.imageUrl}
+                    alt={project.title}
+                    className="w-full h-[400px] object-cover"
+                  />
                 </Card>
-              ))}
+              </div>
+
+              {/* Content */}
+              <div className="space-y-6">
+                <div>
+                  <h2 className="font-chakra-petch text-3xl font-semibold mb-2 text-[#AE330A]">
+                    {project.title}
+                  </h2>
+                  <p className="font-chakra-petch text-xl text-[#1B1A1F]/70 mb-4">
+                    {project.location}
+                  </p>
+                  <p className="font-barlow text-[#1B1A1F]/80 text-lg mb-6">
+                    {project.description}
+                  </p>
+                  <ul className="font-barlow text-[#1B1A1F]/80 text-lg space-y-3">
+                    {project.details.map((detail, i) => (
+                      <li key={i} className="flex items-baseline gap-3">
+                        <span className="text-[#AE330A] text-lg">•</span>
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="font-chakra-petch text-[#1B1A1F]/70 mt-6">
+                    Completed: {project.completion}
+                  </p>
+                </div>
+              </div>
             </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects?.map((project) => (
-                <Card key={project.id} className="overflow-hidden">
-                  <div className="aspect-video relative">
-                    <img
-                      src={project.imageUrl}
-                      alt={project.title}
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                    <p className="text-gray-600">{project.description}</p>
-                    <span className="inline-block mt-4 text-sm font-medium text-primary">
-                      {project.category}
-                    </span>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
+          </div>
+        </section>
+      ))}
     </div>
   );
 }

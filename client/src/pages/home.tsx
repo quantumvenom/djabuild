@@ -10,17 +10,32 @@ export default function Home() {
     {
       image: "https://images.unsplash.com/photo-1590274853856-f22d5ee3d228",
       title: "Carpentry Services",
-      description: "Precision carpentry services delivered at scale, backed by decades of multifamily construction expertise. Our seasoned teams seamlessly integrate architectural vision with structural integrity, ensuring superior quality across every floor and unit. From rough framing to refined finishing work, we execute with excellence while maintaining project momentum through collaborative planning and skilled resource management."
+      description: [
+        "Specialized in mid-rise multifamily carpentry up to $50M",
+        "In-house management teams with proven track record",
+        "Consistent on-time delivery across New England",
+        "Full-scope capability from rough framing to high-end finishes"
+      ]
     },
     {
       image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf",
       title: "General Contracting",
-      description: "Building excellence through collaborative partnerships and proven expertise. We deliver sophisticated mid-rise multifamily projects with a foundation built on transparent communication and methodical project management. Our commitment to quality craftsmanship and innovative solutions drives successful outcomes for even the most complex construction challenges. From preconstruction through completion, we foster relationships that transform ambitious visions into lasting architectural achievements."
+      description: [
+        "Focused on $20M-$100M multifamily developments",
+        "Strong history of delivering within budget targets",
+        "Established record of meeting critical timelines",
+        "Single point of accountability with transparent reporting"
+      ]
     },
     {
       image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e",
       title: "Pre-Construction Services",
-      description: "Strategic planning and collaborative expertise that sets the foundation for successful multifamily developments. Our pre-construction services leverage decades of experience to identify opportunities, mitigate risks, and optimize project outcomes before breaking ground. Through methodical analysis and transparent partnership, we transform complex challenges into actionable solutions, ensuring your project starts with precision and purpose."
+      description: [
+        "Early cost certainty through detailed pre-construction analysis",
+        "Proven value engineering expertise on complex projects",
+        "Comprehensive risk assessment and mitigation planning",
+        "Strong relationships with key subcontractors and suppliers"
+      ]
     }
   ];
 
@@ -141,9 +156,20 @@ export default function Home() {
                   <h3 className="font-chakra-petch text-2xl font-semibold mb-4 text-[#AE330A]">
                     {service.title}
                   </h3>
-                  <p className="font-barlow text-[#1B1A1F]/80 text-lg">
-                    {service.description}
-                  </p>
+                  {Array.isArray(service.description) ? (
+                    <ul className="font-barlow text-[#1B1A1F]/80 text-lg space-y-3">
+                      {service.description.map((point, i) => (
+                        <li key={i} className="flex items-baseline gap-3">
+                          <span className="text-[#AE330A] text-lg">•</span>
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="font-barlow text-[#1B1A1F]/80 text-lg">
+                      {service.description}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
@@ -186,17 +212,17 @@ export default function Home() {
             {/* Regular Projects */}
             <Card className="group relative overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1463620695885-8a91d87c53d0"
-                alt="Mixed-Use Development"
+                src="photos/vista nj exterior.png"
+                alt="The Vista Exterior"
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
                 <div className="absolute bottom-0 p-6">
                   <h3 className="font-chakra-petch text-xl font-semibold text-white mb-2">
-                    Downtown Commons
+                    The Vista
                   </h3>
                   <p className="font-barlow text-white/90">
-                    Mixed-use retail & residential
+                    Senior Living Community
                   </p>
                 </div>
               </div>
@@ -204,17 +230,17 @@ export default function Home() {
 
             <Card className="group relative overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab"
-                alt="Corporate Office Building"
+                src="photos/edge hudson ny overview.jpg"
+                alt="Edge-On-Hudson Overview"
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
                 <div className="absolute bottom-0 p-6">
                   <h3 className="font-chakra-petch text-xl font-semibold text-white mb-2">
-                    Tech Plaza
+                    Edge-On-Hudson
                   </h3>
                   <p className="font-barlow text-white/90">
-                    Modern office complex
+                    1,117-unit luxury multifamily living community
                   </p>
                 </div>
               </div>
