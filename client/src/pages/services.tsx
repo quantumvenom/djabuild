@@ -5,26 +5,37 @@ import { Button } from "@/components/ui/button";
 
 const services = [
   {
+    title: "Carpentry Services",
+    description: [
+      "Specialized in mid-rise multifamily carpentry up to $50M",
+      "In-house management teams with proven track record",
+      "Consistent on-time delivery across New England",
+      "Full-scope capability from rough framing to high-end finishes"
+    ],
+    icon: Building2,
+    image: "https://images.unsplash.com/photo-1590274853856-f22d5ee3d228"
+  },
+  {
     title: "General Contracting",
     description: [
       "Focused on $20M-$100M multifamily developments",
-      "Single point of accountability structure",
-      "Proven systems for budget and schedule control",
-      "Established relationships with quality subcontractors"
+      "Strong history of delivering within budget targets",
+      "Established record of meeting critical timelines",
+      "Single point of accountability with transparent reporting"
     ],
-    icon: Building2,
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e"
+    icon: Users2,
+    image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf"
   },
   {
-    title: "Pre-Construction",
+    title: "Pre-Construction Services",
     description: [
-      "Early project feasibility and constructability analysis",
-      "Value engineering and cost optimization",
-      "Detailed risk assessment and mitigation planning",
-      "Comprehensive bid package development"
+      "Early cost certainty through detailed pre-construction analysis",
+      "Proven value engineering expertise on complex projects",
+      "Comprehensive risk assessment and mitigation planning",
+      "Strong relationships with key subcontractors and suppliers"
     ],
-    icon: TrendingUp,
-    image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5"
+    icon: CheckCircle,
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e"
   },
   {
     title: "Project Management",
@@ -34,19 +45,8 @@ const services = [
       "Proactive schedule and budget management",
       "Quality control throughout project lifecycle"
     ],
-    icon: Users2,
+    icon: TrendingUp,
     image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f"
-  },
-  {
-    title: "Self-Perform Work",
-    description: [
-      "In-house carpentry capabilities up to $50M",
-      "Skilled labor force with proven track record",
-      "Direct control over critical path activities",
-      "Flexibility to maintain project momentum"
-    ],
-    icon: CheckCircle,
-    image: "https://images.unsplash.com/photo-1567954970774-58d6aa6c50dc"
   }
 ];
 

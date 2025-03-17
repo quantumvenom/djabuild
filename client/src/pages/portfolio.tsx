@@ -8,32 +8,18 @@ import { type Project } from "@shared/schema";
 
 const projects = [
   {
-    title: "One Park Apartments",
-    location: "Cliffside Park, NJ",
-    description: "A 14-story, 292-unit luxury apartment complex with stunning views of the Manhattan skyline. This $120M development features high-end amenities, structured parking, and premium finishes throughout.",
+    title: "The Beacon at Gateway",
+    location: "Scarborough, ME",
+    description: "A 216-unit luxury apartment campus set within a master-planned community. This $95M development emphasizes sustainable living and community connection.",
     details: [
-      "292 luxury residential units",
-      "14-story post-tensioned concrete structure",
-      "30,000 sq ft of amenity space",
-      "Three-level parking structure",
-      "Full-service fitness center and resort-style pool"
+      "216 luxury residential units",
+      "Seasonally Heated Swimming Pool with Sundeck",
+      "24/7 Fitness Center with Private Yoga Space",
+      "Self-Serving Indoor Dog Salon",
+      "Stainless Steel Appliances"
     ],
-    imageUrl: "/photos/onepark exterior.jpg",
-    completion: "2022"
-  },
-  {
-    title: "The Vista",
-    location: "Wyckoff, NJ",
-    description: "A premier senior living community designed to provide exceptional comfort and care. This $85M development combines luxury accommodations with specialized healthcare facilities.",
-    details: [
-      "200 independent living units",
-      "80 assisted living apartments",
-      "40 memory care suites",
-      "State-of-the-art medical facilities",
-      "Comprehensive wellness amenities"
-    ],
-    imageUrl: "photos/vista nj exterior.png",
-    completion: "2023"
+    imageUrl: "photos/gateway scarborough campus.jpg",
+    completion: "2019"
   },
   {
     title: "Edge-On-Hudson",
@@ -43,25 +29,39 @@ const projects = [
       "1,177 luxury residential units",
       "Mixed-use development",
       "Waterfront promenade",
-      "LEED Silver certification",
-      "Public spaces and retail integration"
+      "16+ Acres of Parkland",
+      "Two Walkable Metro-North Stations"
     ],
     imageUrl: "photos/edge hudson ny overview.jpg",
-    completion: "2024"
+    completion: "2020"
   },
   {
-    title: "The Beacon at Gateway",
-    location: "Scarborough, ME",
-    description: "A 336-unit luxury apartment campus set within a master-planned community. This $95M development emphasizes sustainable living and community connection.",
+    title: "One Park Apartments",
+    location: "West Hartford, CT",
+    description: "A 14-story, 292-unit luxury apartment complex with stunning views of the Manhattan skyline. This $120M development features high-end amenities, structured parking, and premium finishes throughout.",
     details: [
-      "336 luxury residential units",
-      "Multiple building campus design",
-      "Extensive outdoor amenities",
-      "Sustainable building practices",
-      "Integrated community spaces"
+      "292 luxury residential units",
+      "14-story post-tensioned concrete structure",
+      "Modern luxury living meets historic convent",
+      "Indoor and outdoor community spaces",
+      "Fitness center and resort-style pool"
     ],
-    imageUrl: "photos/gateway scarborough campus.jpg",
+    imageUrl: "/photos/onepark exterior.jpg",
     completion: "2023"
+  },
+  {
+    title: "The Vista",
+    location: "Wyckoff, NJ",
+    description: "A premier senior living community designed to provide exceptional comfort and care. This $85M development combines luxury accommodations with specialized healthcare facilities.",
+    details: [
+      "161 units",
+      "Performing arts center",
+      "State-of-the-Art Fitness Center",
+      "Indoor Pool and Spa",
+      "Multiple Dining Options"
+    ],
+    imageUrl: "photos/vista nj exterior.png",
+    completion: "2021"
   }
 ];
 

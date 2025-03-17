@@ -15,13 +15,16 @@ export default function Navbar() {
   const [location] = useLocation();
 
   return (
-    <nav className="bg-white shadow-sm fixed w-full z-50">
+    <nav className="bg-white shadow-sm fixed w-full z-50 border-b-2 border-[#D4C5B5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-20">
           <div className="flex">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <span className="font-teko text-3xl font-bold text-[#AE330A]">DJA</span>
-              <span className="font-chakra-petch text-[#1B1A1F] ml-2 font-semibold">Construction</span>
+              <img 
+                src="branding/DJA Lockup B - Orange.png" 
+                alt="DJAndrade Construction Logo" 
+                className="h-10 w-auto"
+              />
             </Link>
           </div>
 
@@ -31,7 +34,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`inline-flex items-center px-3 pt-1 font-chakra-petch text-base font-medium transition-colors
+                className={`inline-flex items-center px-3 pt-1 font-chakra-petch text-lg font-medium transition-colors
                   ${location === item.href
                     ? "text-[#AE330A] border-b-2 border-[#AE330A]"
                     : "text-[#1B1A1F] hover:text-[#AE330A]"

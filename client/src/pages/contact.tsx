@@ -1,176 +1,120 @@
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
-import { insertContactSchema, type InsertContact } from "@shared/schema";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Heading } from "@/components/ui/heading";
-import { apiRequest } from "@/lib/queryClient";
-import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { Card } from "@/components/ui/card";
+
+const teamMembers = [
+  {
+    name: "James Kiley",
+    title: "President",
+    description: "",
+    email: "jimmy.k@djandrade.com",
+    phone: "+1 (475) 222-7086",
+  },
+  {
+    name: "Dario Andrade",
+    title: "Director of Estimating",
+    description: "",
+    email: "dario.a@djandrade.com",
+    phone: "",
+  },
+  {
+    name: "Carl Weaver",
+    title: "Operations Manager",
+    description: "",
+    email: "cweaver@djandrade.com",
+    phone: "",
+  },
+  {
+    name: "Michael Harrington",
+    title: "Door, Hardware, and Material Specialist",
+    description: "",
+    email: "mharrington@djandrade.com",
+    phone: "",
+  }
+];
 
 export default function Contact() {
-  const { toast } = useToast();
-  const form = useForm<InsertContact>({
-    resolver: zodResolver(insertContactSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-    },
-  });
-
-  const mutation = useMutation({
-    mutationFn: async (data: InsertContact) => {
-      await apiRequest("POST", "/api/contact", data);
-    },
-    onSuccess: () => {
-      toast({
-        title: "Message sent",
-        description: "We'll get back to you as soon as possible.",
-      });
-      form.reset();
-    },
-    onError: () => {
-      toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
-        variant: "destructive",
-      });
-    },
-  });
-
-  function onSubmit(data: InsertContact) {
-    mutation.mutate(data);
-  }
-
   return (
     <div className="min-h-screen pt-16">
-      <section className="bg-secondary py-16 px-4">
+      <section className="relative bg-[#1B1A1F] pt-32 pb-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <Heading
-            title="Contact Us"
-            description="Get in touch for your next construction project"
-            centered
-            className="text-white mb-8"
-          />
+          <h1 className="font-teko text-4xl sm:text-5xl lg:text-6xl font-bold text-[#FFD584] mb-6">
+            Meet Our Team
+          </h1>
+          <p className="font-barlow text-lg text-white/90 max-w-2xl">
+            Get to know the people behind DJA Construction's success and reach out directly to discuss your next project.
+          </p>
         </div>
       </section>
 
-      <section className="py-16 px-4">
+      <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div>
-              <h3 className="text-2xl font-semibold mb-6">Send us a message</h3>
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Name</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Your name" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Email</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Your email" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="phone"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Phone (optional)</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Your phone number" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Message</FormLabel>
-                        <FormControl>
-                          <Textarea
-                            placeholder="Tell us about your project"
-                            className="min-h-[120px]"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <Button
-                    type="submit"
-                    className="w-full"
-                    disabled={mutation.isPending}
-                  >
-                    {mutation.isPending ? "Sending..." : "Send Message"}
-                  </Button>
-                </form>
-              </Form>
-            </div>
-
-            <div className="space-y-8">
-              <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
+          {/* President's Section */}
+          <div className="mb-20">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
               <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <Phone className="w-6 h-6 text-primary mt-1" />
+                <div className="flex items-start gap-6">
+                  <div className="w-32 h-32 bg-[#1B1A1F]/90 rounded-lg" />
                   <div>
-                    <h4 className="font-medium">Phone</h4>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <Mail className="w-6 h-6 text-primary mt-1" />
-                  <div>
-                    <h4 className="font-medium">Email</h4>
-                    <p className="text-gray-600">contact@djaconstruction.com</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <MapPin className="w-6 h-6 text-primary mt-1" />
-                  <div>
-                    <h4 className="font-medium">Address</h4>
-                    <p className="text-gray-600">
-                      123 Construction Ave<br />
-                      Suite 100<br />
-                      City, State 12345
+                    <h2 className="font-chakra-petch text-3xl font-semibold text-[#AE330A] mb-2">
+                      {teamMembers[0].name}
+                    </h2>
+                    <p className="font-chakra-petch text-xl text-[#1B1A1F]/70 mb-6">
+                      {teamMembers[0].title}
                     </p>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-4">
+                    <Phone className="w-6 h-6 text-[#AE330A]" />
+                    <p className="font-barlow text-lg text-[#1B1A1F]">{teamMembers[0].phone}</p>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <Mail className="w-6 h-6 text-[#AE330A]" />
+                    <p className="font-barlow text-lg text-[#1B1A1F]">{teamMembers[0].email}</p>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Leadership Team Section */}
+          <div>
+            <h2 className="font-teko text-3xl font-bold text-[#1B1A1F] mb-12">Leadership Team</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {teamMembers.slice(1).map((member) => (
+                <Card key={member.name} className="p-6">
+                  <div className="flex gap-6">
+                    <div className="w-24 h-24 bg-[#1B1A1F]/90 rounded-full" />
+                    <div>
+                      <h3 className="font-chakra-petch text-xl font-semibold text-[#AE330A]">
+                        {member.name}
+                      </h3>
+                      <p className="font-chakra-petch text-[#1B1A1F]/70 mb-2">
+                        {member.title}
+                      </p>
+                      <p className="font-barlow text-sm text-[#1B1A1F]/80 mb-4">
+                        {member.description}
+                      </p>
+                      <div className="flex items-center gap-4">
+                        <Mail className="w-4 h-4 text-[#AE330A]" />
+                        <p className="font-barlow text-sm text-[#1B1A1F]">{member.email}</p>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Office Location Section */}
+      <section className="py-20 px-4 bg-[#1B1A1F]">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="font-teko text-3xl font-bold text-[#FFD584] mb-6">Our Office</h2>
+          <div className="flex items-center justify-center gap-4 text-white">
+            <MapPin className="w-6 h-6 text-[#AE330A]" />
+            <p className="font-barlow text-lg">Wallingford, CT 06492</p>
           </div>
         </div>
       </section>
