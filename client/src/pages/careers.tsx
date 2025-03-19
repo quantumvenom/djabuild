@@ -136,20 +136,6 @@ export default function Careers() {
           </p>
         </div>
 
-        <div className="bg-[#F5F5F5] rounded-lg p-8 mb-16">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-chakra-petch text-3xl font-bold text-[#1B1A1F] mb-4">
-              Submit Your Resume
-            </h2>
-            <p className="font-barlow text-lg text-gray-600 mb-6">
-              We're always looking for talented individuals to join our team. Send us your resume, and we'll keep it on file for future opportunities.
-            </p>
-            <Button className="bg-[#AE330A] hover:bg-[#8E2A08]">
-              Submit General Application
-            </Button>
-          </div>
-        </div>
-
         {/* 
         <div className="max-w-3xl mx-auto">
           <h2 className="font-teko text-3xl font-bold text-[#1B1A1F] mb-6 text-center">
