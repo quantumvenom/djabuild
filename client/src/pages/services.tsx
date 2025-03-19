@@ -2,6 +2,7 @@ import { Heading } from "@/components/ui/heading";
 import { Card, CardContent } from "@/components/ui/card";
 import { Building2, Users2, CheckCircle, TrendingUp, Shield, HardHat } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 
 const services = [
   {
@@ -96,8 +97,9 @@ export default function Services() {
                   </ul>
                   <Button 
                     className="bg-[#AE330A] hover:bg-[#AE330A]/90 text-white font-chakra-petch"
+                    asChild
                   >
-                    Learn More
+                    <Link href="/contact#top">Learn More</Link>
                   </Button>
                 </CardContent>
               </Card>

@@ -1,5 +1,7 @@
 import { Phone, Mail, MapPin } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { useEffect } from "react";
+import { useLocation } from "wouter";
 
 const teamMembers = [
   {
@@ -33,8 +35,29 @@ const teamMembers = [
 ];
 
 export default function Contact() {
+  const [location] = useLocation();
+  
+  // Effect to scroll to top when component mounts or location changes
+  useEffect(() => {
+    // Check if there's a hash in the URL
+    if (location.includes('#top')) {
+      // Scroll to the top of the page
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+    // If no hash, still scroll to top on page load
+    else if (location === '/contact') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  }, [location]);
+  
   return (
-    <div className="min-h-screen pt-16">
+    <div className="min-h-screen pt-16" id="top">
       <section className="relative bg-[#1B1A1F] pt-32 pb-20 px-4">
         <div className="max-w-7xl mx-auto">
           <h1 className="font-teko text-4xl sm:text-5xl lg:text-6xl font-bold text-[#FFD584] mb-6">
@@ -104,17 +127,6 @@ export default function Contact() {
                 </Card>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Office Location Section */}
-      <section className="py-20 px-4 bg-[#1B1A1F]">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="font-teko text-3xl font-bold text-[#FFD584] mb-6">Our Office</h2>
-          <div className="flex items-center justify-center gap-4 text-white">
-            <MapPin className="w-6 h-6 text-[#AE330A]" />
-            <p className="font-barlow text-lg">Wallingford, CT 06492</p>
           </div>
         </div>
       </section>

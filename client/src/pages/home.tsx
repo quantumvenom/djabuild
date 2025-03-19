@@ -177,8 +177,8 @@ export default function Home() {
         </section>
       ))}
 
-{/* Our Work Title */}
-<section className="py-20 px-4 bg-white">
+      {/* Our Work Title */}
+      <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="font-teko text-5xl sm:text-6xl lg:text-7xl font-bold text-[#1B1A1F]">
             Our Work
@@ -191,93 +191,87 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[300px]">
             {/* Featured Project (Spans 2 rows) */}
-            <Card className="row-span-2 group relative overflow-hidden">
-              <img 
-                src="/photos/onepark exterior.jpg"
-                alt="One Park Exterior"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
-                <div className="absolute bottom-0 p-6">
-                  <h3 className="font-chakra-petch text-xl font-semibold text-white mb-2">
-                    One Park Apartments
-                  </h3>
-                  <p className="font-barlow text-white/90">
-                    292-unit luxury apartment complex
-                  </p>
+            <Link href="/portfolio#the-vista" className="block row-span-2">
+              <Card className="h-full group relative overflow-hidden cursor-pointer">
+                <img 
+                  src="photos/vista nj exterior.png"
+                  alt="The Vista Exterior"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
+                  <div className="absolute bottom-0 p-6">
+                    <h3 className="font-chakra-petch text-xl font-semibold text-white mb-2">
+                      The Vista
+                    </h3>
+                    <p className="font-barlow text-white/90">
+                      Senior Living Community
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </Link>
 
             {/* Regular Projects */}
-            <Card className="group relative overflow-hidden">
-              <img 
-                src="photos/vista nj exterior.png"
-                alt="The Vista Exterior"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
-                <div className="absolute bottom-0 p-6">
-                  <h3 className="font-chakra-petch text-xl font-semibold text-white mb-2">
-                    The Vista
-                  </h3>
-                  <p className="font-barlow text-white/90">
-                    Senior Living Community
-                  </p>
+            <Link href="/portfolio#one-park-apartments" className="block">
+              <Card className="h-full group relative overflow-hidden cursor-pointer">
+                <img 
+                  src="/photos/onepark exterior.jpg"
+                  alt="One Park Exterior"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
+                  <div className="absolute bottom-0 p-6">
+                    <h3 className="font-chakra-petch text-xl font-semibold text-white mb-2">
+                      One Park Apartments
+                    </h3>
+                    <p className="font-barlow text-white/90">
+                      292-unit luxury apartment complex
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </Link>
 
-            <Card className="group relative overflow-hidden">
-              <img 
-                src="photos/edge hudson ny overview.jpg"
-                alt="Edge-On-Hudson Overview"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
-                <div className="absolute bottom-0 p-6">
-                  <h3 className="font-chakra-petch text-xl font-semibold text-white mb-2">
-                    Edge-On-Hudson
-                  </h3>
-                  <p className="font-barlow text-white/90">
-                    1,117-unit luxury multifamily living community
-                  </p>
+            <Link href="/portfolio#edge-on-hudson" className="block">
+              <Card className="h-full group relative overflow-hidden cursor-pointer">
+                <img 
+                  src="photos/edge hudson ny overview.jpg"
+                  alt="Edge-On-Hudson Overview"
+                  className="w-full h-full object-cover object-left-center transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
+                  <div className="absolute bottom-0 p-6">
+                    <h3 className="font-chakra-petch text-xl font-semibold text-white mb-2">
+                      Edge-On-Hudson
+                    </h3>
+                    <p className="font-barlow text-white/90">
+                      1,117-unit luxury multifamily living community
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </Link>
 
-            <Card className="md:col-span-2 lg:col-span-2 group relative overflow-hidden">
-              <img 
-                src="photos/gateway scarborough campus.jpg"
-                alt="Sustainable Housing Development"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
-                <div className="absolute bottom-0 p-6">
-                  <h3 className="font-chakra-petch text-xl font-semibold text-white mb-2">
-                    The Beacon at Gateway Apartments
-                  </h3>
-                  <p className="font-barlow text-white/90">
-                    336-unit luxury apartment campus
-                  </p>
+            <Link href="/portfolio#the-beacon-at-gateway" className="block md:col-span-2 lg:col-span-2">
+              <Card className="h-full group relative overflow-hidden cursor-pointer">
+                <img 
+                  src="photos/gateway scarborough campus.jpg"
+                  alt="Sustainable Housing Development"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
+                  <div className="absolute bottom-0 p-6">
+                    <h3 className="font-chakra-petch text-xl font-semibold text-white mb-2">
+                      The Beacon at Gateway Apartments
+                    </h3>
+                    <p className="font-barlow text-white/90">
+                      336-unit luxury apartment campus
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </Link>
           </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-20 px-4 bg-[#1B1A1F] text-white">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="font-teko text-3xl font-bold mb-6 text-[#FFD584]">Ready to Start Your Project?</h2>
-          <p className="font-barlow text-white/90 mb-8 max-w-2xl mx-auto">
-            Let's bring your construction vision to life. Contact us today for a consultation 
-            and discover why leading businesses trust DJA Construction.
-          </p>
-          <Button asChild size="lg" className="bg-[#AE330A] hover:bg-[#AE330A]/90 text-white">
-            <Link href="/contact">Get in Touch</Link>
-          </Button>
         </div>
       </section>
     </div>
