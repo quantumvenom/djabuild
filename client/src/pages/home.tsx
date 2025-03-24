@@ -194,7 +194,7 @@ export default function Home() {
             <Link href="/portfolio#the-vista" className="block row-span-2">
               <Card className="h-full group relative overflow-hidden cursor-pointer">
                 <img 
-                  src="photos/vista nj exterior.jpg"
+                  src="/photos/vista nj exterior.jpg"
                   alt="The Vista Exterior"
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
