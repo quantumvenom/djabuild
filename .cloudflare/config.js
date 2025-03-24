@@ -1,8 +1,8 @@
 export default {
   // Build settings
   build: {
-    command: "npm run build:frontend",
-    output_directory: "dist",
+    command: "npm run build",
+    output_directory: "dist/public",
     root_directory: "./"
   },
   // Specify environment variables if needed
