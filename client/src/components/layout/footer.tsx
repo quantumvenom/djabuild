@@ -19,7 +19,7 @@ const navigation = {
   services: [
     { name: "Carpentry Services", href: "/services" },
     { name: "General Contracting", href: "/services" },
-    { name: "Full Services List", href: "/services" }
+    { name: "Pre-Construction Services", href: "/services" }
   ],
   social: [
     { 

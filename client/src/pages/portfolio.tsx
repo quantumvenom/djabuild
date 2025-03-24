@@ -21,7 +21,9 @@ const projects = [
       "Two Walkable Metro-North Stations"
     ],
     imageUrl: "photos/edge hudson ny overview.jpg",
-    completion: "2020"
+    completion: "2020",
+    photoCredit: "Photo by Edge-on-Hudson",
+    photoCreditLink: "https://www.edgeonhudson.com"
   },
   {
     title: "The Beacon at Gateway",
@@ -35,7 +37,9 @@ const projects = [
       "Stainless Steel Appliances"
     ],
     imageUrl: "photos/gateway scarborough campus.jpg",
-    completion: "2019"
+    completion: "2019",
+    photoCredit: "Photo by The Beacon at Gateway",
+    photoCreditLink: "https://www.beaconatgateway.com"
   },
   {
     title: "The Vista",
@@ -48,8 +52,10 @@ const projects = [
       "Indoor Pool and Spa",
       "Multiple Dining Options"
     ],
-    imageUrl: "photos/vista nj exterior.png",
-    completion: "2021"
+    imageUrl: "photos/vista nj exterior.jpg",
+    completion: "2021",
+    photoCredit: "Photo by The Vista",
+    photoCreditLink: "https://thevista.org"
   },
   {
     title: "One Park Apartments",
@@ -63,13 +69,20 @@ const projects = [
       "Fitness center and resort-style pool"
     ],
     imageUrl: "/photos/onepark exterior.jpg",
-    completion: "2023"
+    completion: "2023",
+    photoCredit: "Photo by Ronni Newton",
+    photoCreditLink: "https://we-ha.com/one-park-team-celebrates-grand-opening-of-292-units-in-west-hartford-dedicated-to-marty-kenny/"
   }
 ];
 
 export default function Portfolio() {
   const [location] = useLocation();
   const [isNavigating, setIsNavigating] = useState(false);
+  
+  // Add effect to scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
   
   // Define hash IDs type for type safety
   type SectionId = "the-vista" | "one-park-apartments" | "edge-on-hudson" | "the-beacon-at-gateway";
@@ -157,7 +170,7 @@ export default function Portfolio() {
                 sectionRefs[sectionId as SectionId].current = el;
               }
             }}
-            className={`py-20 px-4 bg-white scroll-mt-24 transition-opacity duration-300 ${
+            className={`py-16 px-4 bg-white scroll-mt-24 transition-opacity duration-300 ${
               isNavigating ? 'opacity-0' : 'opacity-100'
             }`}
           >
@@ -174,6 +187,20 @@ export default function Portfolio() {
                       className="w-full h-[400px] object-cover"
                     />
                   </Card>
+                  <p className="font-barlow text-sm text-[#1B1A1F]/60 mt-2 text-right">
+                    {project.photoCreditLink ? (
+                      <a 
+                        href={project.photoCreditLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:text-[#AE330A] transition-colors"
+                      >
+                        {project.photoCredit}
+                      </a>
+                    ) : (
+                      project.photoCredit
+                    )}
+                  </p>
                 </div>
 
                 {/* Content */}
