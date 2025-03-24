@@ -7,14 +7,14 @@ import { FaFacebookSquare, FaTwitterSquare, FaLinkedin, FaInstagramSquare } from
 
 const navigation = {
   about: [
-    { name: "Our Story", href: "/about" },
+    // { name: "Our Story", href: "/about" },
     { name: "Careers", href: "/careers" },
     { name: "Contact Us", href: "/contact" },
   ],
   portfolio: [
-    { name: "Featured Project", href: "/portfolio" },
-    { name: "Current Projects", href: "/portfolio" },
-    { name: "Completed Projects", href: "/portfolio" },
+    { name: "Featured Projects", href: "/portfolio" },
+    // { name: "Current Projects", href: "/portfolio" },
+    // { name: "Completed Projects", href: "/portfolio" },
   ],
   services: [
     { name: "Carpentry Services", href: "/services" },

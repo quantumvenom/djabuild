@@ -37,17 +37,6 @@ const services = [
     ],
     icon: CheckCircle,
     image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e"
-  },
-  {
-    title: "Project Management",
-    description: [
-      "Dedicated project teams with multifamily expertise",
-      "Transparent reporting and communication systems",
-      "Proactive schedule and budget management",
-      "Quality control throughout project lifecycle"
-    ],
-    icon: TrendingUp,
-    image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f"
   }
 ];
 
