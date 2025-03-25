@@ -2,26 +2,26 @@ import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
 import { Card } from "@/components/ui/card";
 import { Link } from "wouter";
-import { Building2, Users2, CheckCircle, ChevronLeft, ChevronRight, Settings } from "lucide-react";
+import { Building2, Users2, CheckCircle, ChevronLeft, ChevronRight, Settings, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function Home() {
   const services = [
     {
-      image: "https://images.unsplash.com/photo-1590274853856-f22d5ee3d228",
+      image: "/photos/framing3.jpg",
       title: "Carpentry Services",
       description: [
-        "Specialized in mid-rise multifamily carpentry up to $50M",
+        "Specialized in up to mid-rise multifamily carpentry",
         "In-house management teams with proven track record",
         "Consistent on-time delivery across New England",
         "Full-scope capability from rough framing to high-end finishes"
       ]
     },
     {
-      image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf",
+      image: "photos/GC.jpg",
       title: "General Contracting",
       description: [
-        "Focused on $20M-$100M multifamily developments",
+        "Our team has 25 years and counting of experience in the construction industry",
         "Strong history of delivering within budget targets",
         "Established record of meeting critical timelines",
         "Single point of accountability with transparent reporting"
@@ -50,6 +50,11 @@ export default function Home() {
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover opacity-30"
+          ref={(el) => {
+            if (el) {
+              el.playbackRate = 0.5; // Slow down to 50%
+            }
+          }}
         >
           <source src="/videos/hero-video-1.mp4" type="video/mp4" />
         </video>
@@ -115,13 +120,20 @@ export default function Home() {
                 className="rounded-lg shadow-lg w-full"
               />
               <div className="absolute -bottom-6 -right-6 bg-[#AE330A] text-white p-6 rounded-lg hidden lg:block">
-                <p className="text-4xl font-bold mb-2">20+</p>
+                <p className="text-4xl font-bold mb-2">25+</p>
                 <p className="text-sm">Years of Excellence</p>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Bouncing Arrow */}
+      <div className="flex justify-center bg-white">
+        <div className="animate-bounce">
+          <ChevronDown className="w-12 h-12 text-[#AE330A] stroke-[3]" />
+        </div>
+      </div>
 
       {/* Services Title */}
       <section className="pt-20 px-4 bg-white">

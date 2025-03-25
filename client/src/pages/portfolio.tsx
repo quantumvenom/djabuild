@@ -52,7 +52,7 @@ const projects = [
       "Indoor Pool and Spa",
       "Multiple Dining Options"
     ],
-    imageUrl: "/photos/vista nj exterior.jpg",
+    imageUrl: "photos/vista nj exterior.jpg",
     completion: "2021",
     photoCredit: "Photo by The Vista",
     photoCreditLink: "https://thevista.org"
