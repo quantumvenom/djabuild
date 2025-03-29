@@ -1,21 +1,40 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { HardHat, Hammer, ArrowLeft } from "lucide-react";
+import { Link } from "wouter";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gray-50">
-      <Card className="w-full max-w-md mx-4">
-        <CardContent className="pt-6">
-          <div className="flex mb-4 gap-2">
-            <AlertCircle className="h-8 w-8 text-red-500" />
-            <h1 className="text-2xl font-bold text-gray-900">404 Page Not Found</h1>
+    <div className="min-h-screen w-full flex items-center justify-center bg-[#1B1A1F] px-4">
+      <div className="max-w-2xl mx-auto text-center">
+        {/* Construction Hat Icon */}
+        <div className="flex justify-center mb-6">
+          <div className="relative">
+            <HardHat className="h-24 w-24 text-[#FFD584]" />
+            <Hammer className="h-12 w-12 text-[#AE330A] absolute -bottom-2 -right-2 transform rotate-45" />
           </div>
+        </div>
 
-          <p className="mt-4 text-sm text-gray-600">
-            Did you forget to add the page to the router?
-          </p>
-        </CardContent>
-      </Card>
+        {/* Error Message */}
+        <h1 className="font-teko text-6xl sm:text-7xl font-bold text-[#FFD584] mb-4">
+          404: Site Under Construction
+        </h1>
+        
+        <p className="font-barlow text-xl text-white/90 mb-8">
+          Looks like this page is still in the planning phase. Our team is working hard, but for now, let's head back to safer ground.
+        </p>
+
+        {/* Back to Home Button */}
+        <Link href="/">
+          <Button 
+            variant="outline" 
+            size="lg"
+            className="bg-[#AE330A] text-white hover:bg-[#AE330A]/90 border-none font-chakra-petch"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Home
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 }
