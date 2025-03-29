@@ -42,22 +42,6 @@ const projects = [
     photoCreditLink: "https://www.beaconatgateway.com"
   },
   {
-    title: "The Vista",
-    location: "Wyckoff, NJ",
-    description: "The Vista is a luxurious continuing care retirement community (CCRC) in Wyckoff, NJ, designed for adults aged 62 and older, offering state-of-the-art amenities and nestled within Christian Health's scenic 78-acre campus in the Ramapo Mountains.",
-    details: [
-      "161 units",
-      "Performing arts center",
-      "State-of-the-Art Fitness Center",
-      "Indoor Pool and Spa",
-      "Multiple Dining Options"
-    ],
-    imageUrl: "photos/vista nj exterior.jpg",
-    completion: "2021",
-    photoCredit: "Photo by The Vista",
-    photoCreditLink: "https://thevista.org"
-  },
-  {
     title: "One Park Apartments",
     location: "West Hartford, CT",
     description: "One Park Road features modern luxury apartments in West Hartford, combining elegant design, premium amenities, and exceptional convenience. Located steps from Blue Back Square, this residential community offers sophisticated urban living in one of Connecticut's most vibrant neighborhoods.",
@@ -70,8 +54,8 @@ const projects = [
     ],
     imageUrl: "/photos/onepark exterior.jpg",
     completion: "2023",
-    photoCredit: "Photo by Ronni Newton",
-    photoCreditLink: "https://we-ha.com/one-park-team-celebrates-grand-opening-of-292-units-in-west-hartford-dedicated-to-marty-kenny/"
+    photoCredit: "Photo by One Park West Hartford",
+    photoCreditLink: "https://www.livewesthartford.com"
   }
 ];
 
@@ -85,10 +69,9 @@ export default function Portfolio() {
   }, [location]);
   
   // Define hash IDs type for type safety
-  type SectionId = "the-vista" | "one-park-apartments" | "edge-on-hudson" | "the-beacon-at-gateway";
+  type SectionId = "one-park-apartments" | "edge-on-hudson" | "the-beacon-at-gateway";
   
   const sectionRefs = {
-    "the-vista": useRef<HTMLElement | null>(null),
     "one-park-apartments": useRef<HTMLElement | null>(null),
     "edge-on-hudson": useRef<HTMLElement | null>(null),
     "the-beacon-at-gateway": useRef<HTMLElement | null>(null),
@@ -151,9 +134,7 @@ export default function Portfolio() {
       {/* Project Sections */}
       {projects.map((project, index) => {
         let sectionId = '';
-        if (project.title === "The Vista") {
-          sectionId = "the-vista";
-        } else if (project.title === "One Park Apartments") {
+        if (project.title === "One Park Apartments") {
           sectionId = "one-park-apartments";
         } else if (project.title === "Edge-On-Hudson") {
           sectionId = "edge-on-hudson";

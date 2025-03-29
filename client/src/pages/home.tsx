@@ -201,34 +201,13 @@ export default function Home() {
       {/* Our Work Grid */}
       <section className="pb-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[300px]">
-            {/* Featured Project (Spans 2 rows) */}
-            <Link href="/portfolio#the-vista" className="block row-span-2">
-              <Card className="h-full group relative overflow-hidden cursor-pointer">
-                <img 
-                  src="/photos/vista nj exterior.jpg"
-                  alt="The Vista Exterior"
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
-                  <div className="absolute bottom-0 p-6">
-                    <h3 className="font-chakra-petch text-xl font-semibold text-white mb-2">
-                      The Vista
-                    </h3>
-                    <p className="font-barlow text-white/90">
-                      Senior Living Community
-                    </p>
-                  </div>
-                </div>
-              </Card>
-            </Link>
-
-            {/* Regular Projects */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 auto-rows-[300px]">
+            {/* Featured Project */}
             <Link href="/portfolio#one-park-apartments" className="block">
               <Card className="h-full group relative overflow-hidden cursor-pointer">
                 <img 
                   src="/photos/onepark exterior.jpg"
-                  alt="One Park Exterior"
+                  alt="One Park Apartments Exterior"
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
@@ -237,13 +216,14 @@ export default function Home() {
                       One Park Apartments
                     </h3>
                     <p className="font-barlow text-white/90">
-                      292-unit luxury apartment complex
+                      Luxury Living in West Hartford
                     </p>
                   </div>
                 </div>
               </Card>
             </Link>
 
+            {/* Second Project */}
             <Link href="/portfolio#edge-on-hudson" className="block">
               <Card className="h-full group relative overflow-hidden cursor-pointer">
                 <img 
@@ -264,20 +244,21 @@ export default function Home() {
               </Card>
             </Link>
 
-            <Link href="/portfolio#the-beacon-at-gateway" className="block md:col-span-2 lg:col-span-2">
+            {/* Third Project - Full Width */}
+            <Link href="/portfolio#the-beacon-at-gateway" className="block md:col-span-2">
               <Card className="h-full group relative overflow-hidden cursor-pointer">
                 <img 
                   src="photos/gateway scarborough campus.jpg"
-                  alt="Sustainable Housing Development"
+                  alt="The Beacon at Gateway"
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
                   <div className="absolute bottom-0 p-6">
                     <h3 className="font-chakra-petch text-xl font-semibold text-white mb-2">
-                      The Beacon at Gateway Apartments
+                      The Beacon at Gateway
                     </h3>
                     <p className="font-barlow text-white/90">
-                      336-unit luxury apartment campus
+                      216-unit luxury apartment campus
                     </p>
                   </div>
                 </div>
