@@ -226,7 +226,7 @@ export default function Home() {
             </Link>
 
             {/* Regular Projects */}
-            <Link href="/portfolio#edge-on-hudson" className="block">
+            <Link href="/portfolio#edge-on-hudson" className="block md:col-span-2 lg:col-span-2">
               <Card className="h-full group relative overflow-hidden cursor-pointer">
                 <img 
                   src="photos/edge hudson ny overview.jpg"
