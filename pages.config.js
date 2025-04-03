@@ -4,5 +4,7 @@ export default {
   // Enabling SPA mode ensures Cloudflare Pages will return your index.html for any route
   enableSPA: true,
   // Specify the build command
-  buildCommand: "npm run build:frontend",
+  buildCommand: "npm run build",
+  // Specify the root directory for the build
+  root: "client",
 } 

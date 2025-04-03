@@ -2,26 +2,28 @@ import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
 import { Card } from "@/components/ui/card";
 import { Link } from "wouter";
-import { Building2, Users2, CheckCircle, ChevronLeft, ChevronRight, Settings } from "lucide-react";
+import { Building2, Users2, CheckCircle, ChevronLeft, ChevronRight, Settings, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
+
+// Test comment to refresh cloudlflare pages
 
 export default function Home() {
   const services = [
     {
-      image: "https://images.unsplash.com/photo-1590274853856-f22d5ee3d228",
+      image: "/photos/framing3.jpg",
       title: "Carpentry Services",
       description: [
-        "Specialized in mid-rise multifamily carpentry up to $50M",
+        "Specialized in up to mid-rise multifamily carpentry",
         "In-house management teams with proven track record",
         "Consistent on-time delivery across New England",
         "Full-scope capability from rough framing to high-end finishes"
       ]
     },
     {
-      image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf",
+      image: "photos/GC.jpg",
       title: "General Contracting",
       description: [
-        "Focused on $20M-$100M multifamily developments",
+        "Our team has 25 years and counting of experience in the construction industry",
         "Strong history of delivering within budget targets",
         "Established record of meeting critical timelines",
         "Single point of accountability with transparent reporting"
@@ -50,6 +52,11 @@ export default function Home() {
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover opacity-30"
+          ref={(el) => {
+            if (el) {
+              el.playbackRate = 0.5; // Slow down to 50%
+            }
+          }}
         >
           <source src="/videos/hero-video-1.mp4" type="video/mp4" />
         </video>
@@ -115,13 +122,20 @@ export default function Home() {
                 className="rounded-lg shadow-lg w-full"
               />
               <div className="absolute -bottom-6 -right-6 bg-[#AE330A] text-white p-6 rounded-lg hidden lg:block">
-                <p className="text-4xl font-bold mb-2">20+</p>
+                <p className="text-4xl font-bold mb-2">25+</p>
                 <p className="text-sm">Years of Excellence</p>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Bouncing Arrow */}
+      <div className="flex justify-center bg-white">
+        <div className="animate-bounce">
+          <ChevronDown className="w-12 h-12 text-[#AE330A] stroke-[3]" />
+        </div>
+      </div>
 
       {/* Services Title */}
       <section className="pt-20 px-4 bg-white">
@@ -191,32 +205,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[300px]">
             {/* Featured Project (Spans 2 rows) */}
-            <Link href="/portfolio#the-vista" className="block row-span-2">
-              <Card className="h-full group relative overflow-hidden cursor-pointer">
-                <img 
-                  src="photos/vista nj exterior.png"
-                  alt="The Vista Exterior"
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
-                  <div className="absolute bottom-0 p-6">
-                    <h3 className="font-chakra-petch text-xl font-semibold text-white mb-2">
-                      The Vista
-                    </h3>
-                    <p className="font-barlow text-white/90">
-                      Senior Living Community
-                    </p>
-                  </div>
-                </div>
-              </Card>
-            </Link>
-
-            {/* Regular Projects */}
-            <Link href="/portfolio#one-park-apartments" className="block">
+            <Link href="/portfolio#one-park-apartments" className="block row-span-2">
               <Card className="h-full group relative overflow-hidden cursor-pointer">
                 <img 
                   src="/photos/onepark exterior.jpg"
-                  alt="One Park Exterior"
+                  alt="One Park Apartments Exterior"
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
@@ -225,14 +218,15 @@ export default function Home() {
                       One Park Apartments
                     </h3>
                     <p className="font-barlow text-white/90">
-                      292-unit luxury apartment complex
+                      Luxury Living in West Hartford
                     </p>
                   </div>
                 </div>
               </Card>
             </Link>
 
-            <Link href="/portfolio#edge-on-hudson" className="block">
+            {/* Regular Projects */}
+            <Link href="/portfolio#edge-on-hudson" className="block md:col-span-2 lg:col-span-2">
               <Card className="h-full group relative overflow-hidden cursor-pointer">
                 <img 
                   src="photos/edge hudson ny overview.jpg"

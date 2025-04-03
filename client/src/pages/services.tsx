@@ -7,6 +7,7 @@ import { Link } from "wouter";
 const services = [
   {
     title: "Carpentry Services",
+    id: "carpentry",
     description: [
       "Specialized in mid-rise multifamily carpentry up to $50M",
       "In-house management teams with proven track record",
@@ -14,10 +15,11 @@ const services = [
       "Full-scope capability from rough framing to high-end finishes"
     ],
     icon: Building2,
-    image: "https://images.unsplash.com/photo-1590274853856-f22d5ee3d228"
+    image: "/photos/framing3.jpg"
   },
   {
     title: "General Contracting",
+    id: "general-contracting",
     description: [
       "Focused on $20M-$100M multifamily developments",
       "Strong history of delivering within budget targets",
@@ -25,10 +27,11 @@ const services = [
       "Single point of accountability with transparent reporting"
     ],
     icon: Users2,
-    image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf"
+    image: "photos/GC.jpg"
   },
   {
     title: "Pre-Construction Services",
+    id: "pre-construction",
     description: [
       "Early cost certainty through detailed pre-construction analysis",
       "Proven value engineering expertise on complex projects",
@@ -61,7 +64,7 @@ export default function Services() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service) => (
-              <Card key={service.title} className="overflow-hidden border-none shadow-lg">
+              <Card key={service.title} id={service.id} className="overflow-hidden border-none shadow-lg">
                 <div className="aspect-video relative">
                   <img
                     src={service.image}
@@ -88,7 +91,7 @@ export default function Services() {
                     className="bg-[#AE330A] hover:bg-[#AE330A]/90 text-white font-chakra-petch"
                     asChild
                   >
-                    <Link href="/contact#top">Learn More</Link>
+                    <Link href={`/contact?service=${service.id}`}>Learn More</Link>
                   </Button>
                 </CardContent>
               </Card>
