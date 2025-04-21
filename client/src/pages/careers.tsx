@@ -129,6 +129,10 @@ export default function Careers() {
 
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="font-teko text-3xl sm:text-4xl font-bold text-[#1B1A1F] mb-6">
+            DJ Andrade Construction is an Equal Opportunity Employer
+          </h2>
+          <div className="w-full h-px bg-gray-200 my-8"></div>
+          <h2 className="font-teko text-3xl sm:text-4xl font-bold text-[#1B1A1F] mb-6">
             No Current Openings
           </h2>
           <p className="font-barlow text-lg text-gray-600 mb-2">
